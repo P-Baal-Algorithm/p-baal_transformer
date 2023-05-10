@@ -1,4 +1,3 @@
-
 """
 Defintion of seeds that are set for training the models
 """
@@ -25,8 +24,8 @@ When to log and evaluate models
 EVALUATION_STRATEGY = "steps"
 EVAL_STEPS = 100
 
-LOGGING_STRATEGY =  "steps"
-LOGGING_STEPS =  100
+LOGGING_STRATEGY = "steps"
+LOGGING_STEPS = 100
 
 
 """
@@ -36,8 +35,6 @@ TASK_NAME = "mnli"
 
 
 """
-Format for output 
+Format for output
 """
 TYPE_FILE = "csv"
-
-

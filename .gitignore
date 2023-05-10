@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+.flake8
+.isort.cfg
+.setup_project.sh
+.pre-commit-config.yaml
