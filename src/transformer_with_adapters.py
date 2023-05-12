@@ -4,6 +4,8 @@ import os
 import random
 import sys
 
+from src.data.load_data import data_loader
+
 import datasets
 import numpy as np
 import torch
@@ -102,24 +104,9 @@ class TransformerWithAdapters:
                 }
             )
 
-        features = Features(
-            {
-                "hypothesis": Value(dtype="string", id=None),
-                "idx": Value(dtype="int64", id=None),
-                "label": ClassLabel(num_classes=2, names=["entailment", "neutral"], id=None),
-                "premise": Value(dtype="string", id=None),
-            }
-        )
+       
 
-        self.raw_datasets = load_dataset(
-            TYPE_FILE,
-            data_files={
-                "train": args["data"]["train_file"],
-                "validation_matched": args["data"]["validation_file"],
-                "test_matched": args["data"]["test_file"],
-            },
-            features=features,
-            encoding="cp1252",
+        self.raw_datasets = data_loader(**args['data'])
         )
 
         if not args["training_method"]["run_active_learning"]:

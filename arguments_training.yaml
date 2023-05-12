@@ -12,9 +12,10 @@ model:
   list_of_models: []
 
 data:
-  test_file: /content/Rio_Marker_Tool/data/test.csv
-  train_file: /content/Rio_Marker_Tool/data/train.csv
-  validation_file: /content/Rio_Marker_Tool/data/valid.csv
+  task_name: MNLI
+  type_file: online
+  data_directory: /content/Rio_Marker_Tool/data/
+  
 
 training_method:
   run_active_learning: True

@@ -34,7 +34,8 @@ The name of the task
 TASK_NAME = "mnli"
 
 
-"""
-Format for output
-"""
-TYPE_FILE = "csv"
+DATA_FILES = {
+    "train": "train.csv",
+    "validation_matched": "val.csv",
+    "test_matched": "test.csv",
+}
