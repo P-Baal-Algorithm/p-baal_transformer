@@ -13,8 +13,12 @@ model:
 
 data:
   task_name: MNLI
-  type_file: online
-  data_directory: /content/Rio_Marker_Tool/data/
+  type_file: csv
+  file_directory: /content/Rio_Marker_Tool/data/
+  num_classes : 2
+  class_names: entailment
+    - neutral
+
   
 
 training_method:
