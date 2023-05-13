@@ -104,10 +104,7 @@ class TransformerWithAdapters:
                 }
             )
 
-       
-
-        self.raw_datasets = data_loader(**args['data'])
-        )
+        self.raw_datasets = data_loader(**args["data"])
 
         if not args["training_method"]["run_active_learning"]:
             self.raw_datasets["test"] = self.raw_datasets["test_matched"]
