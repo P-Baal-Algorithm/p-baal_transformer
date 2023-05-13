@@ -1,4 +1,4 @@
-# P-BAAL Algorithm
+# P-BAAL Algorithm - UNDER MAINTENANCE
 This repository implemets P-BAAL algorithm to develop ESG scoring relating to Rio Marker Score.
 
 To develop the algorithm, we utilised as a base code a training function for transformer-based models developped by HuggigFace, which was further extended to incorporate adapters and active learning designs. 
