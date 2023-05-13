@@ -45,6 +45,8 @@ def data_loader(
         dataset = load_custom_dataset(
             type_file, file_directory, task_name, num_classes, class_names
         )
+    print(dataset)
+    return dataset
 
 
 def load_huggingface_dataset(file_directory: str):
