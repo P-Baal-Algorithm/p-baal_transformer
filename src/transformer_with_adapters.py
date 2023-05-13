@@ -11,11 +11,7 @@ import numpy as np
 import torch
 import transformers
 from datasets import (
-    ClassLabel,
-    Features,
-    Value,
     concatenate_datasets,
-    load_dataset,
     load_metric,
 )
 from scipy.stats import entropy
@@ -53,7 +49,6 @@ from src.settings import (
     RANDOM_SEED,
     SEED,
     TASK_NAME,
-    TYPE_FILE,
     USE_TENSORBOARD,
 )
 from src.trainer_callback import AdapterDropTrainerCallback
