@@ -98,7 +98,7 @@ class TransformerWithAdapters:
                     "report_to": "tensorboard",
                 }
             )
-
+        print(args["data"])
         self.raw_datasets = data_loader(**args["data"])
 
         if not args["training_method"]["run_active_learning"]:
