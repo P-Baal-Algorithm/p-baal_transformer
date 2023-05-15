@@ -506,7 +506,7 @@ class TransformerWithAdapters:
                 print(sentence_key)
                 args = [examples[sentence_key]]
             result = tokenizer(*args, padding=padding, max_length=max_seq_length, truncation=True)
-
+            print(result)
             return result
 
         # preprocess/ tokenize dataset
