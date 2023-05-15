@@ -1,7 +1,7 @@
 from typing import Dict, List, Union
 from src.data.data_helpers import set_features, get_dataset_mapping
 from src.settings import DATA_FILES
-from datasets import load_dataset, Dataset
+from datasets import load_dataset
 
 
 def data_loader(
