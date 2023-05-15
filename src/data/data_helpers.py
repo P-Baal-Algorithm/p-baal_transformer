@@ -21,14 +21,14 @@ def set_features(task_name: str, num_classes: int, class_names: List) -> Feature
     ------------
         Features: Hugginface dataset obect of the features of the data to be loaded
     """
-    if task_name == "MNLI":
+    if task_name == "mnli":
         features_dict = {
             "hypothesis": Value(dtype="string", id=None),
             "idx": Value(dtype="int64", id=None),
             "label": ClassLabel(num_classes=num_classes, names=class_names, id=None),
             "premise": Value(dtype="string", id=None),
         }
-    elif task_name == "CLASS":  # this name should potentially be changed
+    elif task_name == "class":  # this name should potentially be changed
         features_dict = {
             "text": Value(dtype="string", id=None),
             "label": ClassLabel(num_classes=num_classes, names=class_names, id=None),
