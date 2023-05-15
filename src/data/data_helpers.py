@@ -1,5 +1,5 @@
 from typing import List, Dict
-from datasets import ClassLabel, Features, Value, Dataset
+from datasets import ClassLabel, Features, Value, Dataset, DatasetDict
 
 
 def get_dataset_mapping(
@@ -8,7 +8,9 @@ def get_dataset_mapping(
     """
     Function that converts the huggingface hub dataset split names to the ones use for the p-baal algorithm
     """
-    return {"train": train, "valiation_matched": valiation_matched, "test_matched": test_matched}
+    return DatasetDict(
+        {"train": train, "valiation_matched": valiation_matched, "test_matched": test_matched}
+    )
 
 
 def set_features(task_name: str, num_classes: int, class_names: List) -> Features:
