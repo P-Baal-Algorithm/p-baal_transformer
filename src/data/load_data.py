@@ -57,7 +57,6 @@ def load_huggingface_dataset(file_directory: str):
             - "rotten_tomatoes" - rotten tomatoes dataset
     """
     dataset = load_dataset(file_directory)
-    print(type(dataset))
     if file_directory == "rotten_tomatoes":
         out_dataset = get_dataset_mapping(dataset["train"], dataset["validation"], dataset["test"])
 

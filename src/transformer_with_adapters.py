@@ -499,7 +499,7 @@ class TransformerWithAdapters:
 
         def preprocess_function(examples):
             # Tokenize the texts
-            if data_args.task_name == "MNLI":
+            if data_args.task_name == "mnli":
                 sentence1_key, sentence2_key = sentence_key
                 args = (examples[sentence1_key], examples[sentence2_key])
             else:
