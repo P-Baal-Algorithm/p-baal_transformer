@@ -504,6 +504,7 @@ class TransformerWithAdapters:
                 sentence1_key, sentence2_key = sentence_key
                 args = (examples[sentence1_key], examples[sentence2_key])
             else:
+                print(sentence_key)
                 args = examples[sentence_key]
             result = tokenizer(*args, padding=padding, max_length=max_seq_length, truncation=True)
 
