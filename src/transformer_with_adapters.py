@@ -48,7 +48,6 @@ from src.settings import (
     LOGGING_STRATEGY,
     RANDOM_SEED,
     SEED,
-    TASK_NAME,
     USE_TENSORBOARD,
 )
 from src.trainer_callback import AdapterDropTrainerCallback
@@ -72,7 +71,7 @@ class TransformerWithAdapters:
 
         self.hf_args = {
             "model_name_or_path": args["model"]["model_name_or_path"],
-            "task_name": TASK_NAME,
+            "task_name": args["data"]["task_name"],
             "do_train": DO_TRAIN,
             "do_eval": DO_EVAL,
             "max_seq_length": args["hyperparameters"]["max_seq_length"],
