@@ -93,7 +93,7 @@ class TransformerWithAdapters:
         if USE_TENSORBOARD:
             self.hf_args.update(
                 {
-                    "logging_dir": "/tmp/" + TASK_NAME + "/tensorboard",
+                    "logging_dir": "/tmp/" + self.hf_args["task_name"] + "/tensorboard",
                     "report_to": "tensorboard",
                 }
             )
