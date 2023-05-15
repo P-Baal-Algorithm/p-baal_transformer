@@ -64,7 +64,7 @@ class TransformerWithAdapters:
     @create_save_path
     def __init__(self, args):
 
-        self.task_to_keys = {"mnli": ("premise", "hypothesis")}
+        self.task_to_keys = {"mnli": ("premise", "hypothesis"), "class": "text"}
         self.logger = logging.getLogger(__name__)
         self.pandas_importer = SingletonBase()
 
@@ -98,7 +98,6 @@ class TransformerWithAdapters:
                     "report_to": "tensorboard",
                 }
             )
-        print(args["data"])
         self.raw_datasets = data_loader(**args["data"])
 
         if not args["training_method"]["run_active_learning"]:
@@ -396,7 +395,6 @@ class TransformerWithAdapters:
         config = AutoConfig.from_pretrained(
             model_args.config_name if model_args.config_name else model_args.model_name_or_path,
             num_labels=num_labels,
-            finetuning_task=data_args.task_name,
             cache_dir=model_args.cache_dir,
             # revision=model_args.model_revision,
             use_auth_token=True if model_args.use_auth_token else None,
@@ -452,7 +450,7 @@ class TransformerWithAdapters:
             )
 
         # set defaults for key names
-        sentence1_key, sentence2_key = self.task_to_keys[data_args.task_name]
+        sentence_key = self.task_to_keys[data_args.task_name.lower()]
 
         # Padding strategy
         if data_args.pad_to_max_length:
@@ -502,7 +500,11 @@ class TransformerWithAdapters:
 
         def preprocess_function(examples):
             # Tokenize the texts
-            args = (examples[sentence1_key], examples[sentence2_key])
+            if data_args.task_name == "MNLI":
+                sentence1_key, sentence2_key = sentence_key
+                args = (examples[sentence1_key], examples[sentence2_key])
+            else:
+                args = examples[sentence_key]
             result = tokenizer(*args, padding=padding, max_length=max_seq_length, truncation=True)
 
             return result

@@ -30,7 +30,7 @@ def set_features(task_name: str, num_classes: int, class_names: List) -> Feature
         }
     elif task_name == "CLASS":  # this name should potentially be changed
         features_dict = {
-            "corpus": Value(dtype="string", id=None),
+            "text": Value(dtype="string", id=None),
             "label": ClassLabel(num_classes=num_classes, names=class_names, id=None),
         }
     features = Features(features_dict)
