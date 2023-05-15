@@ -1,5 +1,5 @@
 from typing import Dict, List, Union
-from src.data.data_helpers import set_features, get_dataset_mapping
+from src.data.data_helpers import set_features, get_dataset_mapping, add_index_column
 from src.settings import DATA_FILES
 from datasets import load_dataset
 
@@ -45,7 +45,6 @@ def data_loader(
         dataset = load_custom_dataset(
             type_file, file_directory, task_name, num_classes, class_names
         )
-    print(dataset)
     return dataset
 
 
@@ -61,6 +60,8 @@ def load_huggingface_dataset(file_directory: str):
 
     if file_directory == "rotten_tomatoes":
         out_dataset = get_dataset_mapping(dataset["train"], dataset["validation"], dataset["test"])
+
+    add_index_column(out_dataset)
     return out_dataset
 
 
