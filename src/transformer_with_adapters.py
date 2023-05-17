@@ -555,7 +555,7 @@ class TransformerWithAdapters:
 
         # Get the metric function
         if data_args.type_file == "huggingface":
-            metric = load_metric("f1_score_metric", f1_score_metric)
+            metric = load_metric("src/model/metrics.py")
         else:
             metric = load_metric(
                 "glue", data_args.task_name
