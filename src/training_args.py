@@ -13,6 +13,10 @@ class DataTrainingArguments:
     # The name of the task to train on
     task_name: str = field(default="mnli")
 
+    type_file: str = field(default="csv")
+
+    file_directory: str = field(default="rotten_tomatoes")
+
     # The maximum total input sequence length after tokenization
     max_seq_length: int = field(default=512)  # this in line with mpnet
 

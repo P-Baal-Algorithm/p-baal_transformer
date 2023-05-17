@@ -88,6 +88,8 @@ class TransformerWithAdapters:
             # The next line is important to ensure the dataset labels are properly passed to the model
             "remove_unused_columns": args["training_method"]["remove_unused_columns"],
             "num_train_epochs": args["hyperparameters"]["num_train_epochs"],
+            "type_file": args["data"]["type_file"],
+            "file_directory": args["data"]["file_directory"],
         }
 
         if USE_TENSORBOARD:
@@ -553,7 +555,12 @@ class TransformerWithAdapters:
                 predict_dataset = predict_dataset.select(range(data_args.max_predict_samples))
 
         # Get the metric function
-        metric = load_metric("glue", data_args.task_name)  # so for mnli glue metrics
+        if data_args.type_file == "huggingface":
+            metric = load_metric(data_args.file_directory)
+        else:
+            metric = load_metric(
+                "glue", data_args.task_name
+            )  # needs to be changed depending on whether task is MNLI or classification
 
         # Takes an `EvalPrediction` object (a namedtuple with a predictions and label_ids field)
         # and has to return a dictionary string to float.

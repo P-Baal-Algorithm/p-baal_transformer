@@ -9,7 +9,7 @@ def get_dataset_mapping(
     Function that converts the huggingface hub dataset split names to the ones use for the p-baal algorithm
     """
     return DatasetDict(
-        {"train": train, "valiation_matched": valiation_matched, "test_matched": test_matched}
+        {"train": train, "validation_matched": valiation_matched, "test_matched": test_matched}
     )
 
 
