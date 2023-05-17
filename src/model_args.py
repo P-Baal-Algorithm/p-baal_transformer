@@ -12,6 +12,8 @@ class ModelArguments:
     # Path to pretrained model or model identifier from huggingface.co/models
     model_name_or_path: str = field(default=None)  # microsoft/mpnet-base
 
+    metric: str = field(default="accuracy")
+
     # Pretrained config name or path if not the same as model_name
     config_name: Optional[str] = field(default=None)
 

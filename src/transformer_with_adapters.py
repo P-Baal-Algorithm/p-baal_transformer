@@ -91,6 +91,7 @@ class TransformerWithAdapters:
             "num_train_epochs": args["hyperparameters"]["num_train_epochs"],
             "type_file": args["data"]["type_file"],
             "file_directory": args["data"]["file_directory"],
+            "metric": args["model"]["metric"],
         }
 
         if USE_TENSORBOARD:
@@ -278,10 +279,10 @@ class TransformerWithAdapters:
 
             evaluation_metrics, test_metrics, test_predictions = self.__train()
             print(evaluation_metrics)
-            current_score_eval = evaluation_metrics["eval_accuracy"]
+            current_score_eval = evaluation_metrics[f"eval_{self.hf_args['metric']}"]
             all_scores["scores_eval"].append(current_score_eval)
 
-            current_score_test = test_metrics["eval_accuracy"]
+            current_score_test = test_metrics[f"eval_{self.hf_args['metric']}"]
             all_scores["scores_test"].append(current_score_test)
 
             all_scores["# of records used"].append(self.raw_datasets["train"].num_rows)
