@@ -5,7 +5,6 @@ import random
 import sys
 
 from src.data.load_data import data_loader
-from src.model.metrics import f1_score_metric
 import datasets
 import numpy as np
 import torch
