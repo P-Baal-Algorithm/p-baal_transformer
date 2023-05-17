@@ -5,7 +5,7 @@ import random
 import sys
 
 from src.data.load_data import data_loader
-
+from src.model.metrics import f1_score_metric
 import datasets
 import numpy as np
 import torch
@@ -37,6 +37,7 @@ from transformers.adapters import (
     PrefixTuningConfig,
 )
 from transformers.trainer_utils import get_last_checkpoint
+
 
 from src.model_args import ModelArguments
 from src.settings import (
@@ -556,7 +557,7 @@ class TransformerWithAdapters:
 
         # Get the metric function
         if data_args.type_file == "huggingface":
-            metric = load_metric(data_args.file_directory)
+            metric = load_metric("f1_score_metric", f1_score_metric)
         else:
             metric = load_metric(
                 "glue", data_args.task_name
