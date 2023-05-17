@@ -277,6 +277,7 @@ class TransformerWithAdapters:
             self.logger.info(f'Training using {self.raw_datasets["train"].num_rows}')
 
             evaluation_metrics, test_metrics, test_predictions = self.__train()
+            print(evaluation_metrics)
             current_score_eval = evaluation_metrics["eval_accuracy"]
             all_scores["scores_eval"].append(current_score_eval)
 
