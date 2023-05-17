@@ -10,6 +10,7 @@ model:
   multi_model : True
   model_name_or_path: climatebert/distilroberta-base-climate-f
   list_of_models: []
+  metric : accuracy
 
 data:
   task_name: MNLI
